@@ -1,0 +1,46 @@
+ng-container([formGroup]="alumno")
+  div(class="row")
+    div(class="col-6")
+      mat-form-field(class="example-full-width")
+        mat-label Nombres
+        input(matInput placeholder="Nombres"  style="width:100%" formControlName="nombre")
+    div(class="col-6")
+      mat-form-field(class="example-full-width")
+        mat-label Apellido Paterno
+        input(matInput placeholder="Apellido Paterno" formControlName="ape_pat" )
+  div(class="row")
+    div(class="col-6")
+      mat-form-field(class="example-full-width")
+        mat-label Apellido Materno
+        input(matInput placeholder="Apellido Materno" formControlName="ape_mat")
+    div(class="col-6")
+      mat-form-field(appearance="fill")
+        mat-label GRADO
+        mat-select(formControlName="grado2")
+          mat-option([value]="item.nid_grado", *ngFor="let item of grado") {{item.desc_grado}}
+  div(class="row")
+    div(class="col-6")
+      mat-form-field( appearance="fill")
+        mat-label Choose a date
+        input(matInput [matDatepicker]="picker" #date formControlName="fecha", (dateChange)="getEdad($event)")
+        mat-datepicker-toggle(matSuffix [for]="picker")
+        mat-datepicker(#picker)
+
+    div(class="col-6")
+      mat-form-field(class="example-full-width")
+        mat-label Edad
+        input(matInput placeholder="año(s) mes(es)"  style="width:100%" formControlName="edad")
+
+  div(class="row")
+    div(class="col")
+      input(type="file" id="avatar" name="avatar" accept="image/png, image/jpeg")
+
+  div(class="row")
+    div(class="col-12 text-right")
+      button(mat-raised-button color="primary", [mat-dialog-close]="true", (click)="agregarAlumno()") AGREGAR
+
+
+
+
+
+

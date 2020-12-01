@@ -1,0 +1,16 @@
+div(class="row" style="padding-left: 100px;margin-top:15px")
+    div(class="col-md-12") 
+        h2 Pagos
+    div(class="col-md-3")
+        button(mat-raised-button color="primary", (click)="openDialog()") BUSCAR
+        br
+mat-divider
+div(class="row" style="padding-left: 50px;padding-right:50px;margin-top:15px")
+    div(class="col-12 text-right")
+        button(mat-raised-button color="primary", [mat-dialog-close]="true" ) ANULAR
+        button(mat-raised-button color="primary", [mat-dialog-close]="true") PAGAR
+div(class="row")
+    div(class="col-12 text-center" style="padding:3rem;")
+        div(class="mat-elevation-z8")
+     
+

@@ -1,0 +1,20 @@
+div(class="row" style="padding-left: 100px;margin-top:15px")
+    div(class="col-md-9") 
+        h2 Estudiantes
+    div(class="col-md-3")
+        button(mat-raised-button color="primary", (click)="openDialog()") Nuevo
+    div(class="col-10")
+        mat-form-field(class="buscar")
+            input(matInput placeholder="Buscar", [(ngModel)]="filterAlumno")
+mat-divider
+div(class="row" style="padding-left: 50px;padding-right:50px;margin-top:15px")
+    div(class="col-md-3" style="margin-top:10px", *ngFor="let item of alumnos | filtroUsuario:filterAlumno")
+        mat-card(class="example-card")
+            img(mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" style="padding:1rem;border-radius: 25%;" alt="Photo of a Shiba Inu")
+            mat-card-content
+                div(class="text-center")
+                    h3 
+                        b {{item?.nom_persona}} {{item?.ape_pate_pers}} {{item?.ape_mate_pers}}
+                    h4 {{getEdad(item?.fecha_naci)}}
+                    h4 {{findGrado(item?.nid_grado)}}
+                    button(mat-raised-button color="warn") Borrar
